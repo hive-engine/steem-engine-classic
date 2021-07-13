@@ -1,4 +1,3 @@
-
 <div class="modal-dialog modal-dialog-centered modal-lg">
 	<div class="modal-content blue">
 		<div class="modal-header" style="padding: 40px 40px 10px 60px;">
@@ -6,29 +5,35 @@
 				DEPOSIT TOKENS
 				<div class="note">There is a 1% fee on deposits and withdrawals.</div>
 			</h1>
-			
+
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">X</span>
-			</button>  
+			</button>
 		</div>
 
-		<div class="modal-body">	
+		<div class="modal-body">
 			<div class="note" style="text-align: left; margin-bottom: 20px;">
-				Choose which token you would like to deposit below. For more information about depositing or withdrawing external tokens to Steem Engine please <a href="/?p=faq" target="_blank">see the FAQ</a>.
-			</div>		
+				Choose which token you would like to deposit below. For more information about depositing or withdrawing
+				external tokens to Steem Engine please <a href="/?p=faq" target="_blank">see the FAQ</a>.
+			</div>
 
 			<label>DEPOSIT TOKEN</label>
 			<div class="input-group">
 				<select id="deposit_token">
-					<% Config.PEGGED_TOKENS.forEach(token => { %>
-						<option value="<%= token.symbol %>"><%= token.name %> (<%= token.symbol %>)</option>
-					<% }); %>
+					<% Config.PEGGED_TOKENS.forEach(token=> { %>
+						<option value="<%= token.symbol %>">
+							<%= token.name %> (<%= token.symbol %>)
+						</option>
+						<% }); %>
 				</select>
-			</div>				
+			</div>
+
+			<div id="disabled_warning" class="alert alert-warning mt-2" style="width:100%; display: none;"></div>
 		</div>
-		
+
 		<div class="modal-footer" style="padding-bottom: 0;">
-			<button id="btnBuy" type="button" class="btn btn-primary btn-lg w-100" onclick="getDepositInfoClick()">GET DEPOSIT INFO</button>
+			<button id="btnBuy" type="button" class="btn btn-primary btn-lg w-100" onclick="getDepositInfoClick()">GET
+				DEPOSIT INFO</button>
 		</div>
 
 		<div class="privex">
@@ -40,15 +45,24 @@
 </div>
 
 <script type="text/javascript">
-	function getDepositInfoClick() {  
-		if($('#deposit_token').val() == 'STEEM') {
+	function getDepositInfoClick() {
+		const selectedSymbol = $('#deposit_token').val()
+
+		const isDisabled = Config.DISABLED_DEPOSITS.find(t => t.symbol === selectedSymbol)
+
+		if (isDisabled) {
+			$('#disabled_warning').text(isDisabled.reason).show()
+			return;
+		}
+
+		if (selectedSymbol == 'STEEM') {
 			SE.ShowDialog('deposit_steem');
 			return;
 		}
 
 		SE.ShowLoading();
 
-		SE.GetDepositAddress($('#deposit_token').val(), result => {
+		SE.GetDepositAddress(selectedSymbol, result => {
 			SE.HideLoading();
 
 			if (result && result.address) {
@@ -63,7 +77,6 @@
 		});
 	}
 
-	if('<%= data && data.symbol ? data.symbol : "" %>' != '')
+	if ('<%= data && data.symbol ? data.symbol : "" %>' != '')
 		$('#deposit_token').val('<%= data && data.symbol ? data.symbol : "" %>');
 </script>
-
