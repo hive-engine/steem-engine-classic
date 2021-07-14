@@ -9,7 +9,7 @@ Config = {
     HISTORY_API: 'https://api.steem-engine.net/history/',
     NATIVE_TOKEN: 'ENG',
     STEEMP_ACCOUNT: 'steem-peg',
-    DISABLED_TOKENS: ['BTC', 'LTC', 'STEEM', 'SBD', 'BCC', 'XAP', 'XRP', 'GOLOS', 'DISNEY', 'AMAZON', 'VOICE', 'ETH', 'EOS', 'LASSE', 'TIME', 'R', 'SCTR', 'ALLAH', 'DONE', 'BNB', 'ETHER', 'LTCPEG', 'SBC', 'LASSECASH', 'HIVE', 'TIX', 'TIXM', 'STEM', 'STEMM', 'LEO', 'LEOM', 'LEOMM', 'NEO', 'NEOX', 'PORN', 'SPORTS', 'BATTLE', 'SIM', 'CTP', 'CTPM', 'EMFOUR', 'CCC', 'CCCM', 'BEER', 'WEED', 'WEEDM', 'WEEDMM', 'SPACO', 'SPACOM', 'NEOXAG', 'NEOXAGM', 'KANDA', 'SAND', 'INFOWARS', 'SPI', 'PAL', 'PALM', 'PALMM', 'ENGAGE', 'BRO', 'CC', 'BUILDTEAM', 'ECO', 'GAMER', 'EPC', 'SPT', 'JAHM','USDT','APX','APXM','ENJ','DOGE','BTS','TKO'],
+    DISABLED_TOKENS: ['BTC', 'LTC', 'STEEM', 'SBD', 'BCC', 'XAP', 'XRP', 'GOLOS', 'DISNEY', 'AMAZON', 'VOICE', 'ETH', 'EOS', 'LASSE', 'TIME', 'R', 'SCTR', 'ALLAH', 'DONE', 'BNB', 'ETHER', 'LTCPEG', 'SBC', 'LASSECASH', 'HIVE', 'TIX', 'TIXM', 'STEM', 'STEMM', 'LEO', 'LEOM', 'LEOMM', 'NEO', 'NEOX', 'PORN', 'SPORTS', 'BATTLE', 'SIM', 'CTP', 'CTPM', 'EMFOUR', 'CCC', 'CCCM', 'BEER', 'WEED', 'WEEDM', 'WEEDMM', 'SPACO', 'SPACOM', 'NEOXAG', 'NEOXAGM', 'KANDA', 'SAND', 'INFOWARS', 'SPI', 'PAL', 'PALM', 'PALMM', 'ENGAGE', 'BRO', 'CC', 'BUILDTEAM', 'ECO', 'GAMER', 'EPC', 'SPT', 'JAHM'],
     MARKET_HIDE_TOKENS: ['SMTT'],
     PEGGED_TOKEN: 'STEEMP',
     PEGGED_TOKENS: [{
@@ -120,10 +120,13 @@ Config = {
         name: "EOS One Thousand Coin",
         symbol: "OTC",
         pegged_token_symbol: "OTT"
-    }
-    ]
-<<<<<<< HEAD
+    }],
+    DISABLED_DEPOSITS: [{
+        symbol: 'BTC',
+        reason: 'BTC deposits have been disabled temporally due to technical difficulties.'
+    }],
+    DISABLED_WITHDRAWALS: [{
+        symbol: 'BTCP',
+        reason: 'BTC deposits have been disabled temporally due to technical difficulties.'
+    }]
 }
-=======
-}
->>>>>>> parent of 2ab29ad (Implemented enabled and disabled deposits and withdrawals from Config.js)
