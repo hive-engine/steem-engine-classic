@@ -3,6 +3,7 @@ SE = {
 	Params: {},
 	Tokens: [],
 	ScotTokens: {},
+	Settings: {},
 
 	Api: function (url, data, callback, always) {
 		if (data == null || data == undefined) data = {};
@@ -1824,5 +1825,29 @@ SE = {
 					callback(null, Object.assign(result, pegged_token));
 			}
 		});
-	}
+	},
+	GetTokenCreationFee: async function (callback) {
+		let fee = 0;
+		await ssc.find('tokens', 'params', {}, 20, 0, [], (err, result) => {
+			if (result && result[0] && result[0].tokenCreationFee)
+				fee = result[0].tokenCreationFee;
+
+			if (callback)
+				callback(null, fee);
+		});
+	},
+	fetchSettings: function () {
+		$.ajax({
+			url: Config.SETTINGS_API + '/settings',
+			type: 'GET',
+			contentType: "application/json",
+			dataType: "json",
+			success: result => {
+				this.Settings = result;
+			},
+			error: (xhr, status, errorThrown) => {
+				console.log(xhr);
+			}
+		});
+	},
 }
