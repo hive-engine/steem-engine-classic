@@ -120,13 +120,6 @@ Config = {
         name: "EOS One Thousand Coin",
         symbol: "OTC",
         pegged_token_symbol: "OTT"
-    }],
-    DISABLED_DEPOSITS: [{
-        symbol: 'BTC',
-        reason: 'BTC deposits have been disabled temporally due to technical difficulties.'
-    }],
-    DISABLED_WITHDRAWALS: [{
-        symbol: 'BTCP',
-        reason: 'BTC deposits have been disabled temporally due to technical difficulties.'
-    }]
+    }
+    ]
 }
