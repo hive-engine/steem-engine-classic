@@ -122,4 +122,8 @@ Config = {
         pegged_token_symbol: "OTT"
     }
     ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of 2ab29ad (Implemented enabled and disabled deposits and withdrawals from Config.js)
