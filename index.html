@@ -20,6 +20,13 @@
     <script src="scripts/footable.min.js"></script>
     <link rel="stylesheet" href="styles/footable.bootstrap.min.css" />
     <script src="scripts/steem.min.js"></script>
+
+    <script src="scripts/Config.js?v=38"></script>
+    <script src="scripts/init.js?v=3"></script>
+    <script src="scripts/utils.js?v=1"></script>
+    <script src="scripts/SE.js?v=41"></script>
+    <script src="scripts/render.js"></script>
+
     <script src="scripts/chartjs-chart-financial/controller.financial.js"></script>
     <script src="scripts/chartjs-chart-financial/element.financial.js"></script>
     <script src="scripts/chartjs-chart-financial/element.candlestick.js"></script>
@@ -34,16 +41,6 @@
     <link rel="stylesheet" href="styles/main.css?v=25062023" />
     <link rel="stylesheet" href="styles/mobile.css?v=23062019" />
     <title>Steem Engine - Smart Contracts on the STEEM blockchain</title>
-
-
-    <script type="text/javascript">
-        var cacheBust = ['scripts/Config.js', 'scripts/init.js', 'scripts/utils.js', 'scripts/SE.js', 'scripts/render.js'];
-        for (i = 0; i < cacheBust.length; i++) {
-            var el = document.createElement('script');
-            el.src = cacheBust[i] + "?v=" + Math.random();
-            document.getElementsByTagName('head')[0].appendChild(el);
-        }
-    </script>
 </head>
 
 <body>
